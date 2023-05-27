@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Modules</title>
+    <link rel="stylesheet" href="/styles/listStyle.css"> 
+</head>
+<body>
+    <div class="container">
+        <%- include('../../../partials/sidebar') %>
+        <section>
+            <%- include('../../../partials/header') %>
+            <div class="heading">
+                <h1>List des modules</h1>
+                <a class="add-btn" href="/add_module">
+                    <i class="fa-solid fa-plus"></i> Ajouter
+                </a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Semester</th>
+                        <th>Filière</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% modules.forEach(module => { %>
+                    <tr>
+                        <td><%= module.name  %></td>
+                        <td><% module.semesters.forEach((semester, index) => {
+                                if(index === module.semesters.length-1) { %>
+                                <%=  semester.name %>
+                                <%} else { %>
+                                <%=  semester.name %>, 
+                                <% } 
+                            }) %>
+                        </td>
+                        <td><% module.sectors.forEach((sector, index) => { 
+                                if(index === module.sectors.length-1) { %>
+                                    <%= sector.name %>
+                                <%} else { %>
+                                    <%= sector.name %>, 
+                                <% } 
+                            })%>
+                        </td>
+                        <td>
+                            <a class="actions" href="update_module/<%=module.id %>">Modifier</a>
+                            <a class="actions" href="delete_module/<%=module.id %>">Supprimer</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

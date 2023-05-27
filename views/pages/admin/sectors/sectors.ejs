@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Filières</title>
+    <link rel="stylesheet" href="/styles/listStyle.css"> 
+</head>
+<body>
+    <div class="container">
+        <%- include('../../../partials/sidebar') %>
+        <section>
+            <%- include('../../../partials/header') %>
+            <div class="heading">
+                <h1>Liste des filières</h1>
+                <a class="add-btn" href="/add_sector">
+                    <i class="fa-solid fa-plus"></i> Ajouter
+                </a>
+            </div>
+            <table class="sector">
+                <thead>
+                    <tr>
+                        <th>Filière</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% sectors.forEach(sector => { %>
+                    <tr>
+                        <td><%= sector.name  %></td>
+                        <td>
+                            <a class="actions" href="update_sector/<%=sector.id %>">Modifier</a>
+                            <a class="actions" href="delete_sector/<%=sector.id %>">Supprimer</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

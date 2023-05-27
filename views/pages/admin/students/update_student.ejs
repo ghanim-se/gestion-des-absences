@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Modifier un étudiant</title>
+    <link rel="stylesheet" href="/styles/add_and_update.css"> 
+    <script defer src="/js/clearBtn.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form action="/update_student/<%- student.id %>" method="post">
+            <h1>Modifier un étudiant</h1>
+            <div class="fields">
+                <label for="firstName">Prénom : </label>
+                <input class="inpt" type="text" name="firstName" value="<%- student.firstName %>">
+                <label for="lastName">Nom : </label>
+                <input class="inpt" type="text" name="lastName" value="<%- student.lastName %>">
+                <label for="apogeeCode">Code d'apogée : </label>
+                <input class="inpt" type="text" name="apogeeCode" value="<%- student.apogeeCode %>">
+                <label for="birthDate">Date de naissance : </label>
+                <input class="inpt" type="date" name="birthDate" value="<%- birthDate %>">
+                <label for="sector">Filière : </label>
+                <select class="select" name="sectorId" id="sector">
+                    <% sectors.forEach(sector => {
+                        if (sector.id === student.sectorId) { %>
+                            <option value="<%= sector.id %>" selected><%= sector.name %></option>
+                        <% }
+                        else { %>
+                            <option value="<%= sector.id %>"><%= sector.name %></option>
+                        <%}
+                    }) %> 
+                </select>
+                <label for="semester">Semester : </label>
+                <select class="select" name="semesterId" id="semester">
+                    <% semesters.forEach(semester => { 
+                        if (semester.id === student.semesterId) { %>
+                            <option value="<%= semester.id %>" selected><%= semester.name %></option>
+                        <% }
+                        else { %>
+                            <option value="<%= semester.id %>"><%= semester.name %></option>
+                        <%}
+                    }) %> 
+                </select>
+                <a class="returnBtn" href="/students"><i class="fa-solid fa-arrow-left"></i></a>
+                <span class="btns">
+                    <input class="clearBtn" type="button" value="Effacer">
+                    <input class="submitBtn" type="submit" value="Modifier">
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

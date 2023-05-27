@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Modifier un filière</title>
+    <link rel="stylesheet" href="/styles/add_and_update.css"> 
+    <script defer src="/js/clearBtn.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form action="/update_sector/<%= sector.id %>" method="post">
+            <h1>Modifier un filière</h1>
+            <div class="fields">
+                <label for="">Le nom du filière : </label>
+                <input class="inpt" type="text" name="name" value="<%= sector.name %>">
+                <a class="returnBtn" href="/sectors"><i class="fa-solid fa-arrow-left"></i></a>
+                <span class="btns">
+                    <input class="clearBtn" type="button" value="Effacer">
+                    <input class="submitBtn" type="submit" value="Modifier">
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

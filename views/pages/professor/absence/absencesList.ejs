@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Absences</title>
+    <link rel="stylesheet" href="/styles/listStyleProfessor.css"> 
+    <script defer src="/js/absent-persentSwitchBtn.js"></script>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <%- include('../../../partials/header') %>
+            <div class="heading">
+                <a class="return-btn" href="/professor/sessions"><i class="fa-solid fa-arrow-left"></i></a>
+                <h1>Liste d'absences</h1>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Code apogée</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
+                    <tr>
+                        <td><%= student.firstName  %></td>
+                        <td><%= student.lastName  %></td>
+                        <td><%= student.apogeeCode  %></td>
+                        <td>
+                            <span data-studentId="<%= student.id %>" class="switch-field">
+                                <% if(student.status === 'present') { %>
+                                    <span class="ap-field present"><%= student.status %></span>
+                                <% } else if(student.status === 'absent') { %>
+                                    <span class="ap-field absent"><%= student.status %></span>
+                                <% } %>
+                                <span class="icon"><i class="fa-solid fa-repeat"></i></span>
+                            </span>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

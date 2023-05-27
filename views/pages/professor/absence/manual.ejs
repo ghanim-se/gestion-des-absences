@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <link rel="stylesheet" href="/styles/Manual.css">
+    <title>Manual</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form action="/professor/manual" method="post">
+            <h1>Manual</h1>
+            <div class="fields">
+                <label for="semester">Semester : </label>
+                <select class="select" name="semesterId" id="semester">
+                    <% semesters.forEach(semester => { %>
+                        <option value="<%= semester.id %>"><%= semester.name %></option>
+                    <% }) %>
+                </select>
+                <label for="sector">Filière : </label>
+                <select class="select" name="sectorId" id="sector">
+                    <% sectors.forEach(sector => { %>
+                        <option value="<%= sector.id %>"><%= sector.name %></option>
+                    <% }) %>
+                </select>
+                <label for="module">Module : </label>
+                <select class="select" name="moduleId" id="module">
+                    <% modules.forEach(module => { %>
+                        <option value="<%= module.id %>"><%= module.name %></option>
+                    <% }) %>
+                </select>
+                <label for="session">Le temps de la séance : </label>
+                <select class="select" name="sessionId" id="sector">
+                    <% sessions.forEach(session => { %>
+                        <option value="<%= session.id %>"><%= session.session %></option>
+                    <% }) %>
+                </select>
+                <a class="returnBtn" href="/professor/dashboard"><i class="fa-solid fa-arrow-left"></i></a>
+                <span class="btns">
+                    <input class="submitBtn" type="submit" value="Confirmer">
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

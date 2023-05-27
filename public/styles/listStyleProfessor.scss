@@ -1,0 +1,107 @@
+@import url('./sidebar.css');
+@import url('./header.css');
+.container {
+    width: 100%;
+    display: flex;
+    
+    section {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        
+        .heading {
+            padding: 12px;
+            h1 {
+                display: inline-block;
+            }        
+            
+            .add-btn {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: rgb(27, 172, 87);
+                color: white;
+                text-decoration: none;
+                border-radius: 7px;
+                margin-left: 12px;
+            }
+
+            .return-btn {
+                margin-right: 12px;
+                display: inline-block;
+                padding: 7px 15px;
+                background-color: #00bfff;
+                color: white;
+                text-decoration: none;
+                border-radius: 50% 0 0 50%;
+                margin-left: 12px;
+            }
+        }
+
+
+        table {
+            border-radius: 12px;
+            border-collapse: collapse;
+            margin: 12px auto;    
+            width: 90%;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            
+            th {
+                padding: 12px;
+                border: 2px solid white;
+            }
+
+            .last-th {
+                background-color: #ffffff;
+            }
+        
+            td {
+                border: 2px solid white;
+                padding: 10px 20px;
+                
+                .switch-field {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .present, .absent {
+                        width: 100px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+
+                    .present {
+                        color: rgb(19, 172, 83);
+                    }
+
+                    .absent {
+                        color: rgb(172, 19, 19);
+                    }
+                }
+
+                a {
+                    color: #2385ca;
+                }
+
+                a.remove {
+                    color: rgb(172, 19, 19);
+                }
+                .icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    color: white;
+                    border-radius: 50%;
+                    background-color: #2385ca;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        
+        .sector {
+            width: 60%;
+        }
+    }
+}

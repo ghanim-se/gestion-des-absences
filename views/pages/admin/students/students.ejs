@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Étudiantes</title>
+    <link rel="stylesheet" href="/styles/listStyle.css"> 
+</head>
+<body>
+    <div class="container">
+        <%- include('../../../partials/sidebar') %>
+        <section>
+            <%- include('../../../partials/header') %>
+            <div class="heading">
+                <h1>Liste des étudiants</h1>
+                <a class="add-btn" href="/add_student">
+                    <i class="fa-solid fa-plus"></i> Ajouter
+                </a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prénom</th>
+                         <th>Nom</th>
+                         <th>Filière</th>
+                         <th>Code apogée</th>
+                         <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
+                    <tr>
+                        <td><%= student.firstName  %></td>
+                        <td><%= student.lastName  %></td>
+                        <td><%= student.sectorId.name  %></td>
+                        <td><%= student.apogeeCode  %></td>
+                        <td>
+                            <a class="actions" href="update_student/<%=student.id %>">Modifier</a>
+                            <a class="actions" href="delete_student/<%=student.id %>">Supprimer</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

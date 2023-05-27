@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Sessions</title>
+    <link rel="stylesheet" href="/styles/listStyleProfessor.css"> 
+</head>
+<body>
+    <div class="container">
+        <%- include('../../../partials/professorSidebar') %>
+        <section>
+            <%- include('../../../partials/header') %>
+            <div class="heading">
+                <h1>Liste des sessions</h1>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="last-th"></th>
+                        <th>Filière</th>
+                        <th>Module</th>
+                        <th>Session</th>
+                        <th>Date de création</th>
+                        <th class="last-th"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% absenceLists.forEach(absencelist => { %>
+                        <tr>
+                            <td><a href="/professor/absences/<%= absencelist.id %>"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                            <td><%= absencelist.sector %></td>
+                            <td><%= absencelist.module %></td>
+                            <td><%= absencelist.session %></td>
+                            <td><%= absencelist.createdAt.toLocaleString().split(',')[0] %></td>
+                            <td><a class="remove" href="/professor/delete/<%= absencelist.id %>"><i class="fa-solid fa-x"></i></a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

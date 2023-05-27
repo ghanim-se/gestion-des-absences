@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Update Sector</title>
+    <link rel="stylesheet" href="/styles/add_and_update.css"> 
+    <link rel="stylesheet" href="/styles/bootstrap.min.css.css"> 
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/multiselect-dropdown.js" ></script>
+    <script defer src="/js/clearBtn.js"></script>
+    
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form action="/update_module/<%= module.id %>" method="post">
+            <h1>Modifier un module</h1>
+            <div class="fields">
+            <label for="">Le nom du module : </label>
+                <input class="inpt" type="text" name="name" value="<%= module.name %>">
+                
+                <label for="sector">Filière : </label>
+                <select class="select selectpicker" name="sectors" id="sector" multiple="multiple">
+                    <% sectors.forEach(sector => { %>
+                        <option value="<%= sector.id %>"><%= sector.name %></option>
+                    <% }) %> 
+                </select>
+
+                <label for="semester">Semester : </label>
+                <select class="select" name="semesters" id="semester" multiple>
+                    <% semesters.forEach(semester => { %>
+                        <option value="<%= semester.id %>"><%= semester.name %></option>
+                    <% }) %> 
+                </select>
+                <a class="returnBtn" href="/modules"><i class="fa-solid fa-arrow-left"></i></a>
+                <span class="btns">
+                    <input class="clearBtn" type="button" value="Effacer">
+                    <input class="submitBtn" type="submit" value="Ajouter">
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

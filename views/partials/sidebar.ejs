@@ -1,0 +1,50 @@
+<div class="sidebar">
+    <div class="logo">
+        <img src="/images/logo.jpg" alt="logo">
+        <h2>Admin</h2>
+        <p>Bonjour, <%= user.firstName %></p>
+    </div>
+    <ul>
+        <% 
+            const style = "mark"
+            const categories = []
+            categories.length = 5
+            switch (pathname) {
+                case 'dashboard':
+                    categories[0] = style
+                    categories.forEach(category => category = "")
+                    break;
+                case 'students':
+                    categories[1] = style
+                    categories.forEach(category => category = "")
+                    break;
+                case 'users':
+                    categories[2] = style
+                    categories.forEach(category => category = "")
+                    break;
+                case 'sectors':
+                    categories[3] = style
+                    categories.forEach(category => category = "")
+                    break;
+                case 'modules':
+                    categories[4] = style
+                    categories.forEach(category => category = "")
+                    break;
+                case 'sessions':
+                    categories[5] = style
+                    categories.forEach(category => category = "")
+                    break;
+                default:
+                    break;
+            }
+        %>
+        <li><i class="fa-solid fa-table-columns"></i><a href="/dashboard">Tableau de bord</a> <span class=<%= categories.at(0) %>></span></li>
+        <li><i class="fa-solid fa-graduation-cap"></i><a href="/students">Étudiantes</a> <span class=<%= categories.at(1) %>></span></li>
+        <li><i class="fa-solid fa-user"></i><a href="/users">Utilisateurs</a> <span class=<%= categories.at(2) %>></span></li>
+        <li><i class="fa-solid fa-school-flag"></i><a href="/sectors">Filières</a> <span class=<%= categories.at(3) %>></span></li>
+        <li><i class="fa-solid fa-table-list"></i><a href="/modules">Modules</a> <span class=<%= categories.at(4) %>></span></li>
+        <li><i class="fa-solid fa-book"></i><a href="/sessions">Sessions</a> <span class=<%= categories.at(5) %>></span></li>
+                            
+    </ul>
+        <span class="logout"><i class="fa-solid fa-door-open"></i><a href="/logout">Déconnexion</a></span>
+</div>

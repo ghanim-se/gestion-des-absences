@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Ajouter un utilisateur</title>
+    <link rel="stylesheet" href="/styles/add_and_update.css"> 
+    <script defer src="/js/clearBtn.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form action="/add_user" method="post">
+            <h1>Ajouter un nouvel utilisateur</h1>
+            <div class="fields">
+                <label for="firstName">Prénom : </label>
+                <input class="inpt" type="text" name="firstName">
+                <label for="lastName">Nom : </label>
+                <input class="inpt" type="text" name="lastName">
+                <label for="email">Email : </label>
+                <input class="inpt" type="text" name="email">
+                <label for="password">Password : </label>
+                <input class="inpt" type="text" name="password">
+                <label for="role">Rôle : </label>
+                <select class="select" name="role">
+                    <option value="ADMIN">Administrateur</option>
+                    <option value="PROF">Professeur</option>
+                </select>
+                <a class="returnBtn" href="/users"><i class="fa-solid fa-arrow-left"></i></a>
+                <span class="btns">
+                    <input class="clearBtn" type="button" value="Effacer">
+                    <input class="submitBtn" type="submit" value="Ajouter">
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

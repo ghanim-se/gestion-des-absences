@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head') %>
+    <title>Tableau de bord</title>
+    <link rel="stylesheet" href="/styles/dashboard.css"> 
+</head>
+<body>
+    <div class="container">
+        <%- include('../../partials/professorSidebar') %>
+        <section>
+            <%- include('../../partials/header') %>
+            <div class="overview">
+                <h2>Overview</h2>
+                <div class="categories">
+                    <div class="category">
+                        <span class="box">
+                            <i class="fa-solid fa-book icon"></i>
+                            <p>Sessions</p>
+                            <span class="counter-icon"><%= NofSessions %></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="latest-users">
+                <h2>Dernières séances</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Filière</th>
+                            <th>Module</th>
+                            <th>Session</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% latestSessions.forEach(session => { %>
+                        <tr>
+                            <td><%= session.sector %></td>
+                            <td><%= session.module %></td>
+                            <td><%= session.session %></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Utilitateurs</title>
+    <link rel="stylesheet" href="/styles/listStyle.css"> 
+</head>
+<body>
+    <div class="container">
+        <%- include('../../../partials/sidebar') %>
+        <section>
+            <%- include('../../../partials/header') %>
+            <div class="heading">
+                <h1>Liste des utilisateurs</h1>
+                <a class="add-btn" href="/add_user">
+                    <i class="fa-solid fa-plus"></i> Ajouter
+                </a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Date d'inscription</th>
+                        <th>Rôle</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.firstName %></td>
+                        <td><%= user.lastName %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.registrationDate.toLocaleString().split(',')[0] %></td>
+                        <td><%= user.role %></td>
+                        <td>
+                            <a class="actions" href="update_user/<%=user.id %>">Modifier</a>
+                            <a class="actions" href="delete_user/<%=user.id %>">Supprimer</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

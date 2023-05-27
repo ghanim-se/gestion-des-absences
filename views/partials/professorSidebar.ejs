@@ -1,0 +1,35 @@
+<div class="sidebar">
+    <div class="logo">
+        <img src="/images/logo.jpg" alt="logo">
+        <h2>Professor</h2>
+        <p>Bonjour, <%= user.firstName %></p>
+    </div>
+    <ul>
+        <% 
+            const style = "mark"
+            const categories = []
+            categories.length = 3
+            switch (pathname) {
+                case 'dashboard':
+                    categories[0] = style
+                    categories.forEach(category => category = "")
+                    break;
+                case 'manual':
+                    categories[1] = style
+                    categories.forEach(category => category = "")
+                    break;
+                case 'sessions':
+                    categories[2] = style
+                    categories.forEach(category => category = "")
+                    break;
+                default:
+                    break;
+            }
+        %>
+        <li><i class="fa-solid fa-table-columns"></i><a href="/professor/dashboard">Tableau de bord</a> <span class=<%= categories.at(0) %>></span></li>
+        <li><i class="fa-solid fa-pen"></i><a href="/professor/manual">Manuel</a> <span class=<%= categories.at(1) %>></span></li>
+        <li><i class="fa-solid fa-book"></i><a href="/professor/sessions">Sessions</a> <span class=<%= categories.at(2) %>></span></li>
+                            
+    </ul>
+        <span class="logout"><i class="fa-solid fa-door-open"></i><a href="/logout">Déconnexion</a></span>
+</div>

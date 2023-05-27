@@ -1,0 +1,79 @@
+.background {
+    background-image: url('../images/background2.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.81);
+    box-shadow: 1.8px 1.8px 1.95rem rgba(0, 0, 0, 0.218);
+
+
+    h1 {
+        margin-bottom: 50px;
+        font-style: italic;
+        color: #00BFFF;
+    }
+
+    .fields {
+        display: grid;
+        grid-template-columns: 200px 400px;
+        place-items: center;
+        row-gap: 12px;
+    }
+    
+    label {
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-right: auto;
+    }
+    
+    .inpt, .select {
+        width: 400px;
+        height: 50px;
+        border-radius: 7px;
+        outline: none;
+        border: 1px solid #ccc;
+        font-size: 1.1rem;
+        padding: 0 12px;
+    }
+
+    .btns {
+        display: block;
+        margin-left: auto;
+        margin-top: 5px;
+    }
+
+    .returnBtn {
+        background-color: #00BFFF;
+        color: white;
+        display: block;
+        padding: 15px 20px;
+        margin-right: auto;
+        border-radius: 7px;
+    }
+
+    .submitBtn, .clearBtn {
+        cursor: pointer;
+        padding: 15px 20px;
+        border-radius: 7px;
+        border: none;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        margin-left: 6px;
+    }
+    .submitBtn {
+        background-color: #00BFFF;
+    }
+    .clearBtn {
+        background-color: #ca2331;
+    }
+}

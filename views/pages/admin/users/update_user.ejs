@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../../partials/head') %>
+    <title>Modifier un utilisateur</title>
+    <link rel="stylesheet" href="/styles/add_and_update.css"> 
+    <script defer src="/js/clearBtn.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <form action="/update_user/<%- user.id %>" method="post">
+            <h1>Modifier un utilisateur</h1>
+            <div class="fields">
+                <label for="firstName">Prénom : </label>
+                <input class="inpt" type="text" name="firstName" value="<%= user.firstName %>">
+                <label for="lastName">Nom : </label>
+                <input class="inpt" type="text" name="lastName" value="<%= user.lastName %>">
+                <label for="email">Email : </label>
+                <input class="inpt" type="text" name="email" value="<%= user.email %>">
+                <label for="password">Password : </label>
+                <input class="inpt" type="text" name="password" value="<%= user.password %>">
+                <label for="role">Rôle : </label>
+                <select class="select" name="role">
+                    <% if (user.role ==='PROF') { %>
+                        <option value="PROF" selected>Professeur</option>
+                        <option value="ADMIN">Administrateur</option>
+                    <% } else if (user.role ==='ADMIN') { %>
+                        <option value="ADMIN" selected>Administrateur</option>
+                        <option value="PROF">Professeur</option>
+                    <% } %>
+                </select>
+                <a class="returnBtn" href="/users"><i class="fa-solid fa-arrow-left"></i></a>
+                <span class="btns">
+                    <input class="clearBtn" type="button" value="Effacer">
+                    <input class="submitBtn" type="submit" value="Modifier">
+                </span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
