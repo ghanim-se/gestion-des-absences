@@ -2,8 +2,6 @@ const { src , dest, watch, parallel, series } = require('gulp');
 const gulp = require('gulp');
 const ts = require('gulp-typescript');
 const sass = require('gulp-sass')(require('sass'));
-const nodemon = require('gulp-nodemon')
-
 
 
 const files = {
