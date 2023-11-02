@@ -1,1 +1,1 @@
-# application web de gestion des absences
+# Web application for absence management
